@@ -3,6 +3,8 @@ package Fenster;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Fibonacci extends JFrame {
     private JTextField calculatingArea;
@@ -36,6 +38,15 @@ public class Fibonacci extends JFrame {
         resultArea = new JTextField();
         resultArea.setEditable(false);// Ergebnisfeld nicht bearbeitbar
         resetButton = new JButton("reset");
+
+        calculatingArea.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                    calculateFibonacci();
+                }
+            }
+        });
     }
 
     private void addComponentsToContentPane() {
