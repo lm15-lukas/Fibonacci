@@ -44,10 +44,19 @@ public class Fibonacci extends JFrame {
         add(resultArea);
         add(resetButton);
 
+
+
         calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 calculateFibonacci();
+            }
+        });
+
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resetFields();
             }
         });
     }
@@ -84,10 +93,9 @@ public class Fibonacci extends JFrame {
         }
         return b;
     }
-    public void setResetButton(ActionEvent e){
-        if(e.getSource() == resetButton){
-            calculatingArea.setText("");
-        }
+    private void resetFields(){
+        calculatingArea.setText("");
+        resultArea.setText("");
     }
 
     public static void main(String[] args) {
